@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Google One tap 2.0 Demo by Gradeup</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			iframe {
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				left: 0;
+				border: 0px;
+				min-height: 173px;
+			}
+
+			@media screen and (min-width: 60em) {
+				iframe {
+					position: static;
+					width: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1 class="sign-up__title">Sign Up for Localhost</h1>
+			<!-- Used as a single source so id="google-iframe" -->
+			<!-- Can be used as a multiple source present multiple times per page so all iframes should have class="google-iframe-mul" -->
+			<iframe
+				title="Gradeup Yolo Login"
+				id="google-iframe"
+				src="/google-yolo.html"
+			></iframe>
+		</div>
+
+		<script type="text/javascript" src="event.js"></script>
+	</body>
+</html>
