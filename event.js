@@ -4,12 +4,9 @@ window.addEventListener('message', (event) => {
 	// iframe having class, used as a multiple source for google one tap present multiple times per page
 	const iframeEltAr = [...document.querySelectorAll('.google-iframe-mul')];
 	switch (event.data.type) {
-		case 'verifyPing':
-			// This part handles the initial handshake by the Google Yolo iframe.
-			// It is sent by OpenYOLO https://github.com/openid/OpenYOLO-Web/blob/dc841704619d7801da0b860c91953ff730fca07f/ts/protocol/post_messages.ts#L27
-			if (event && event.source && event.source.postMessage) {
-				event.source.postMessage({ type: 'verifyAck', data: event.data.data }, '*');
-			}
+		case 'displayed':
+			console.log('displayed');
+			// You can add any operation after the Google One Tap iframe is visible
 			break;
 		case 'handleGoogleYoloCb':
 			if (event.data.credentials) {
