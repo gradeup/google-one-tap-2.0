@@ -1,5 +1,8 @@
 # **Google One-Tap 2.0**
 
+Google One-Tap is a feature that enables a user to signup or signin to your website with just a single click. It creates a smooth experience for the user to jump into the website without going through a series of authentication steps.
+This is the implementation of Google One-Tap 2.0 with improved UX.
+
 To run the demo : 
 - clone the repo
 - change the client id to your provided `google client id` in `google-yolo.html` file.
