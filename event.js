@@ -5,8 +5,11 @@ window.addEventListener('message', (event) => {
 	const iframeEltAr = [...document.querySelectorAll('.google-iframe-mul')];
 	switch (event.data.type) {
 		case 'displayed':
-			console.log('displayed');
 			// You can add any operation after the Google One Tap iframe is visible
+			const bgBlurElem = document.querySelector('#bgBlurLogin');
+			if (bgBlurElem) {
+				bgBlurElem.style.display = 'flex';
+			}
 			break;
 		case 'handleGoogleYoloCb':
 			if (event.data.credentials) {
