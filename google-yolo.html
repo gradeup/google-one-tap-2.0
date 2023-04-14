@@ -59,13 +59,14 @@
 				// Initializing the Google One Tap 2.0
 				google.accounts.id.initialize({
 					// Replace it with your Google Client Id
-					client_id: 'GOOGLE_CLIENT_ID',
+					client_id: '837888262468-7jrglbtjdgmdvdihj1qsdtc3b3rtfjvm.apps.googleusercontent.com',
 					// Function to be called with credentials after the one of the listed accounts have been selected by the user
 					callback: handleGoogleCb,
 					// cookie domain that is used for the Google One Tap
-					state_cookie_domain: 'gradeup.co',
+					state_cookie_domain: 'dinavinter-literate-yodel-p75vgpg5755h76g6-8080.preview.app.github.dev/',
 					// Context for the UI Message of the Google One Tap
 					context: 'use',
+					allowed_parent_origin: "https://dinavinter-literate-yodel-p75vgpg5755h76g6-8080.preview.app.github.dev,https://gigya.login.dynidp.com,https://cdpn.io,*.gigya.com",
 					// Rednder mode for the UI style of the Google One Tap (NOT MENTIONED IN THE OFFICIAL DOCS)
 					ui_mode: isMobile() ? 'bottom_sheet': 'card',
 				});
