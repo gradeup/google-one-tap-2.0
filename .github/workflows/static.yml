@@ -33,19 +33,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      
       - name: Replace relative URLs
-        uses: ahmadawais/replace-in-file-action@v2.2.0
-        with:
-          files: 'build/**/*.html, build/**/*.js' # This should be the glob pattern that matches your static HTML and JS files
-          from: 'href="/' # This should be the relative URL prefix you want to replace
-          to: 'href="{{ site.baseurl }}/' # This should be the new prefix with Jekyll's site.baseurl variable
+        run: |
+          npx replace-in-file --from 'href="/' --to 'href="{{ site.baseurl }}/' build/**/*.html build/**/*.js
+          npx replace-in-file --from 'src="/' --to 'src="{{ site.baseurl }}/' build/**/*.html build/**/*.js
 
-      - name: Replace relative image URLs
-        uses: ahmadawais/replace-in-file-action@v2.2.0
-        with:
-          files: 'build/**/*.html, build/**/*.js' # This should be the glob pattern that matches your static HTML and JS files
-          from: 'src="/' # This should be the relative image URL prefix you want to replace
-          to: 'src="{{ site.baseurl }}/' # This should be the new prefix with Jekyll's site.baseurl variable
+
 
 
       - name: Upload artifact
