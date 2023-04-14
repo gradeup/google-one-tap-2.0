@@ -36,8 +36,8 @@ jobs:
       
       - name: Replace relative URLs
         run: |
-          npx replace-in-file --from 'href="/' --to 'href="{{ site.baseurl }}/' build/**/*.html build/**/*.js
-          npx replace-in-file --from 'src="/' --to 'src="{{ site.baseurl }}/' build/**/*.html build/**/*.js
+          npx replace-in-file 'href="/' 'href="{{ site.baseurl }}/' **
+          npx replace-in-file 'src="/' 'src="{{ site.baseurl }}/' **
 
 
 
