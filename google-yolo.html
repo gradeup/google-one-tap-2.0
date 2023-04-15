@@ -16,7 +16,7 @@
 			}
 		</style>
 		<!-- Google One Tap 2.0 Library -->
-		<script src="https://accounts.google.com/gsi/client"></script>
+		<script src="https://accounts.google.com/gsi/client" async defer></script>
 		<script>
 			// function to send message to the parent container
 			function messageParentContainer(data) {
@@ -26,7 +26,7 @@
 
 			// function to hide loader after the load of the Google One Tap UI
 			function hideLoader() {
-				(document.querySelectorAll('.yolo-loader') || []).forEach(i => i.setAttribute('style', 'display: none;'));
+				// (document.querySelectorAll('.yolo-loader') || []).forEach(i => i.setAttribute('style', 'display: none;'));
 			}
 
 			function adjustIframe() {
@@ -43,6 +43,9 @@
 										const height = parseInt(iframeMutationsList[0].target.style.height);
 										hideLoader();
 										messageParentContainer({type: 'height', height});
+
+										// google.accounts.id.intermediate.notifyParentResize(height);
+										
 									});
 
 									attributeObserver.observe(node, { attributes: true });
@@ -50,7 +53,7 @@
 							});
 						});
 					});
-					bodyObserver.observe(window.document.body, { childList: true });
+					 bodyObserver.observe(window.document.body, { childList: true });
 			}
 
 			window.onGoogleLibraryLoad = function () {
@@ -61,11 +64,13 @@
 					// Replace it with your Google Client Id
 					client_id: '837888262468-7jrglbtjdgmdvdihj1qsdtc3b3rtfjvm.apps.googleusercontent.com',
 					// Function to be called with credentials after the one of the listed accounts have been selected by the user
-					callback: handleGoogleCb,
+					callback:   google.accounts.id.intermediate.notifyParentDone,
 					// cookie domain that is used for the Google One Tap
-					// Context for the UI Message of the Google One Tap
+					
+					ux_mode: 'popup',
+                    // Context for the UI Message of the Google One Tap
 					context: 'use',
-					allowed_parent_origin: "https://dinavinter-literate-yodel-p75vgpg5755h76g6-8080.preview.app.github.dev,https://gigya.login.dynidp.com,https://cdpn.io,*.gigya.com,https://dyn-poc.github.io/google-one-tap-ifram/,https://dyn-poc.github.io/*",
+					allowed_parent_origin: ["https://dinavinter-literate-yodel-p75vgpg5755h76g6-8080.preview.app.github.dev", "https://gigya.login.dynidp.com", "https://cdpn.io","https://*.gigya.com" , "https://*.github.io" , "https://*.dynidp.com"],
 					// Rednder mode for the UI style of the Google One Tap (NOT MENTIONED IN THE OFFICIAL DOCS)
 					ui_mode: isMobile() ? 'bottom_sheet': 'card',
 				});
@@ -108,11 +113,27 @@
 		</script>
 	</head>
 	<body>
+
+		<!-- <nav>
+			<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="continue_with" data-size="large" data-logo_alignment="left">
+			</div>
+	
+		</nav> -->
+
 		<!-- Loader for the before state of the Google One Tap UI -->
 		<img
 				class="yolo-loader"
 				src="https://gs-post-images.grdp.co/2019/9/yolo-loader-img1569240947560-75.png-rs-high-webp.png"
 				style="max-width: 100%; display: block; position: relative;"
 			/>
+
+			<div class="g_id_signin"
+			data-type="icon"
+			data-shape="circle"
+			data-theme="outline"
+			data-text="signin_with"
+			data-size="large">
+				</div>
+	   
 	</body>
 </html>

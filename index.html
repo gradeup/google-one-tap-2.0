@@ -3,6 +3,7 @@
 	<head>
 		<title>Google One tap 2.0 Demo by Gradeup</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
 		<style>
 			iframe {
 				position: fixed;
@@ -22,16 +23,30 @@
 		</style>
 	</head>
 	<body>
+		<script src="https://accounts.google.com/gsi/intermediate"></script>
+
 		<div>
 			<h1 class="sign-up__title">Sign Up for Localhost</h1>
-			<!-- Used as a single source so id="google-iframe" -->
-			<!-- Can be used as a multiple source present multiple times per page so all iframes should have class="google-iframe-mul" -->
+		 
+			<!-- log on data-done callback -->
+			<div id="g_id_intermediate_iframe" 
+			     data-src = "https://dinavinter-literate-yodel-p75vgpg5755h76g6-8080.preview.app.github.dev/google-yolo.html"
+				 data-done = "onOneTapSuccess">
+<!-- 
 			<iframe
-				title="Gradeup Yolo Login"
-				id="google-iframe"
-				src="/google-yolo.html"
-			></iframe>
+				 title="Gradeup Yolo Login"
+				 id="google-iframe"
+				 src="/google-yolo.html"
+			 ></iframe> -->
+        </div>
+
 		</div>
+		<script >
+			function onOneTapSuccess(e) {
+				console.log('onOneTapSuccess');
+  				console.log(e);
+            }
+		</script>
 
 		<script type="text/javascript" src="event.js"></script>
 	</body>
