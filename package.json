@@ -1,0 +1,20 @@
+{
+  "name": "gradeup-googleonetap",
+  "version": "1.0.0",
+  "description": "Google One-Tap is a feature that enables a user to signup or signin to your website with just a single click. It creates a smooth experience for the user to jump into the website without going through a series of authentication steps. This is the implementation of Google One-Tap 2.0 with improved UX.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
